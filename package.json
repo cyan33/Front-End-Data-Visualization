@@ -1,0 +1,22 @@
+{
+  "name": "front_end_data_visualization",
+  "version": "1.0.0",
+  "description": "Graduate Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasyimgit/Front-End-Data-Visualization.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasyimgit/Front-End-Data-Visualization/issues"
+  },
+  "homepage": "https://github.com/thomasyimgit/Front-End-Data-Visualization#readme",
+  "dependencies": {
+    "echarts": "^3.4.0"
+  }
+}
