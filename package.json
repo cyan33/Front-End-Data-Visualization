@@ -4,19 +4,35 @@
   "description": "Graduate Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node ./server.js",
+    "build": "webpack -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thomasyimgit/Front-End-Data-Visualization.git"
   },
-  "author": "",
+  "author": "Chang Yan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/thomasyimgit/Front-End-Data-Visualization/issues"
   },
   "homepage": "https://github.com/thomasyimgit/Front-End-Data-Visualization#readme",
   "dependencies": {
-    "echarts": "^3.4.0"
+    "animate.css": "^3.5.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "cheerio": "^0.22.0",
+    "echarts": "^3.5.2",
+    "express": "^4.15.2",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "css-loader": "^0.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3"
   }
 }

@@ -1,3 +1,5 @@
 china_haze_data/.idea/workspace.xml
 china_haze_data/.idea/workspace.xml
 node_modules
+dist/app.bundle.js
+.vscode
