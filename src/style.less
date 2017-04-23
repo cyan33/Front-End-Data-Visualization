@@ -1,9 +1,82 @@
+.horizontal_align_center_with_size(@width, @height) {
+  display: block;
+  margin: 0 auto;
+  width: @width;
+  height: @height;
+}
+
 body {
   width: 100%;
   height: 100%;
+  .chart-container {
+    display: none;
+    margin: 0 auto;
+    width: 700px;
+    height: 700px;
+  }
+  .liquidfill {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+  }
+  .loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .fa {
+      display: inline-block;
+      font-size: 60px;
+      animation: spin linear 1.5s infinite;
+    }
+  }
 }
 
-.container {
-  width: 100%;
-  height: 100%;
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+/* Copy and paste the stupid shit*/
+.content-container {
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      &:hover {
+        background-color: #ddd;
+      }
+      &.active {
+        background-color: #ccc;
+      }
+    }
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    animation: fadeEffect 1s;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+
+/* Fade in tabs */
+@keyframes fadeEffect {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

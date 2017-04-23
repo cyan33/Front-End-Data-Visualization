@@ -22,6 +22,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "cheerio": "^0.22.0",
     "echarts": "^3.5.2",
+    "echarts-liquidfill": "^1.0.4",
     "express": "^4.15.2",
     "jquery": "^3.2.1"
   },

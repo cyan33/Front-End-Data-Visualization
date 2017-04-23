@@ -3,10 +3,6 @@ const app = express()
 const path = require('path')
 const airPollution = require('./src/data/airPollution')
 
-var time = require('./module');
-var anotherTime = require('./module');
-console.log(time === anotherTime);
-
 app.use('/dist', express.static('dist'))
 
 app.get('/', (req, res) => {
