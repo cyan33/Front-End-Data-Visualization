@@ -1,8 +1,34 @@
+import 'echarts-liquidfill'
 import echarts from 'echarts'
 import china from './china'
+import $ from 'jquery'
 
-export default function(data) {
-  const myChart = echarts.init(document.querySelector('.container'));
+// invalid dom right now, try container
+// const liquidfill = echarts.init(document.querySelector('.liquidfill'))
+
+export function makeLiquidfill(percentage = 0) {
+  if(!$('.liquidfill').is(":visible")) {
+    $('.liquidfill').show()
+  }
+
+  const shouldStop = percentage > 1
+  const option = {
+    series: [{
+      type: 'liquidFill',
+      data: [percentage, percentage - 0.1, percentage - 0.2],
+    }],
+  }
+  if(!shouldStop) {
+    liquidfill.setOption(option)
+    setTimeout(() => makeLiquidfill(percentage + 0.1), 700)
+  }
+}
+
+export function makePm25Chart(data) {
+  const myChart = echarts.init(document.querySelector('.chart-container'))
+
+  $('.chart-container').show()
+
   myChart.setOption({
     backgroundColor: '#404a59',
     title: {

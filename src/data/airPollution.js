@@ -2,7 +2,7 @@ const cheerio = require('cheerio')
 const express = require('express')
 const request = require('request')
 
-const URL = 'http://www.pm25s.com/cn/rank/'
+const AIR_POLLUTION_URL = 'http://www.pm25s.com/cn/rank/'
 
 const geoCoordinationMap = {
   '海门':[121.15,31.89],
@@ -215,7 +215,7 @@ function parseWeatherData(html) {
 module.exports = {
   get: () => {
     return new Promise((resolve, reject) => {
-      request(URL, (err, res, body) => {
+      request(AIR_POLLUTION_URL, (err, res, body) => {
         resolve(parseWeatherData(body))
       })
     })
