@@ -1,35 +1,64 @@
-.horizontal_align_center_with_size(@width, @height) {
-  display: block;
-  margin: 0 auto;
-  width: @width;
-  height: @height;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 body {
   width: 100%;
   height: 100%;
-  .chart-container {
-    display: none;
-    margin: 0 auto;
-    width: 700px;
-    height: 700px;
+  .nav {
+    .tab {
+      position: fixed;
+      width: 100%;
+      background: maroon;
+      height: 50px;
+      font-weight: bold;
+      font-family: monospace;
+      a {
+        &:first-child {
+          margin-left: 70px;
+        }
+        &.active {
+          text-decoration: underline;
+        }
+        position: relative;
+        top: 12px;
+        margin-right: 30px;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+      }
+    }
   }
-  .liquidfill {
-    display: block;
-    margin: 0 auto;
-    width: 400px;
-    height: 400px;
-  }
-  .loading-spinner {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    .fa {
-      display: inline-block;
-      font-size: 60px;
-      animation: spin linear 1.5s infinite;
+  .content-container {
+      position: relative;
+      top: 50px;
+      padding: 30px 70px;
+      font-family: monospace;
+    .chart-container {
+      display: none;
+      margin: 0 auto;
+      width: 700px;
+      height: 700px;
+    }
+    .liquidfill {
+      display: block;
+      margin: 0 auto;
+      width: 400px;
+      height: 400px;
+    }
+    .loading-spinner {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .fa {
+        display: inline-block;
+        font-size: 60px;
+        animation: spin linear 1.5s infinite;
+      }
     }
   }
 }
@@ -41,36 +70,20 @@ body {
 
 /* Copy and paste the stupid shit*/
 .content-container {
-  .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.3s;
-      font-size: 17px;
-      &:hover {
-        background-color: #ddd;
-      }
-      &.active {
-        background-color: #ccc;
-      }
-    }
-  }
+  
 
   /* Style the tab content */
   .tabcontent {
     display: none;
-    padding: 6px 12px;
+    display: relative;
+    top: 50px;
     animation: fadeEffect 1s;
     &.active {
       display: block;
     }
+  }
+  .tabcontent-container {
+    
   }
 }
 

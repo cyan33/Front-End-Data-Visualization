@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Front-End Data Visualization</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="nav">
+    <div class="tab">
+      <a href="#" class="tablink active">What</a>
+      <a href="#" class="tablink">Why</a>
+      <a href="#" class="tablink">How</a>
+      <a href="#" class="tablink">Demos</a>
+    </div>
+  </div>
+  <div class="content-container">
+    
+    <div class="tabcontent-container">
+      <div id="What" class="tabcontent active">
+        <h3>What</h3>
+        <p>What is Data Visualization?</p>
+      </div>
+
+      <div id="Why" class="tabcontent">
+        <h3>Why</h3>
+        <p>Why should we leverage data visualization?</p> 
+      </div>
+
+      <div id="How" class="tabcontent">
+        <h3>How</h3>
+        <p>How should we do it?</p>
+      </div>
+
+      <div id="Demos" class="tabcontent">
+        <h3>Demos</h3>
+        <p>Building...</p>
+      </div>
+    </div>
+    <div class="chart-container"></div>
+    <div class="loading-spinner">
+      <i class="fa fa-spinner" aria-hidden="true"></i>
+    </div>
+  </div>
+  <script src="./dist/app.bundle.js"></script>
+</body>
+</html>
