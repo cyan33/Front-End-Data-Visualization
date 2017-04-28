@@ -1,0 +1,27 @@
+extends ./layout/_document
+
+block stylesheets
+
+block content
+  include ./layout/_navs
+  .content-container
+    .tabcontent-container
+      #What.tabcontent.active
+        h3 What
+        p What is Data Visualization?
+      #Why.tabcontent
+        h3 Why
+        p Why should we leverage data visualization?
+      #How.tabcontent
+        h3 How
+        p How should we do it?
+      #Demos.tabcontent
+        h3 Demos
+        p
+          a(href='/air-pollution') Real-time Air Pollution Data in China
+    .chart-container
+    .loading-spinner
+      i.fa.fa-spinner(aria-hidden='true')
+
+block scripts
+  script(src='/dist/app.bundle.js')

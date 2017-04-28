@@ -4,7 +4,7 @@
   "description": "Graduate Project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "dev": "nodemon src/server/",
     "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w"
   },
   "repository": {
@@ -24,8 +24,10 @@
     "echarts": "^3.5.2",
     "echarts-liquidfill": "^1.0.4",
     "express": "^4.15.2",
+    "jade": "^1.11.0",
     "jquery": "^3.2.1",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "pug": "^2.0.0-beta.12"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -41,7 +43,6 @@
     "less-loader": "^4.0.3",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
-    "pug": "^2.0.0-beta.12",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3"
   }
