@@ -4,8 +4,8 @@
   "description": "Graduate Project",
   "main": "index.js",
   "scripts": {
-    "server": "node ./server.js",
-    "build": "./node_modules/.bin/eslint *.js && ./node_modules/.bin/webpack -w"
+    "dev": "nodemon src/server.js",
+    "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,9 @@
     "eslint-plugin-react": "^6.10.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
+    "nodemon": "^1.11.0",
+    "open": "0.0.5",
+    "pug": "^2.0.0-beta.12",
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3"
   }
