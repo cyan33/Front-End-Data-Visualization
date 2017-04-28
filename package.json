@@ -24,7 +24,8 @@
     "echarts": "^3.5.2",
     "echarts-liquidfill": "^1.0.4",
     "express": "^4.15.2",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "open": "0.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

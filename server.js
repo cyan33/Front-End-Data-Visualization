@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const open = require('open')
 const airPollution = require('./src/data/airPollution')
-
 app.use('/dist', express.static('dist'))
 
 app.get('/', (req, res) => {
@@ -21,6 +21,7 @@ app.get('/pm25', (req, res) => {
 
 app.listen(6789, () => {
   console.log('server start')
+  open('http://localhost:6789')
 })
 
 process.on('uncaughtException', (err) => {
