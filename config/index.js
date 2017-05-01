@@ -1,6 +1,10 @@
 module.exports = {
-  server: {
-    port: 6789,
+  SERVER: {
+    PORT: 6789,
   },
-  client: {},
+  CLIENT: {},
+  URL: {
+    AIR_POLLUTION: 'http://www.pm25s.com/cn/rank/',
+    WORLD_FLIGHT: 'http://gallerybox.echartsjs.com/asset/get/s/data-1469162638978-rJDcVXku.json',
+  },
 }

@@ -1,7 +1,6 @@
 extends ./layout/_document
 
 block stylesheets
-
 block content
   include ./layout/_navs
   .content-container
@@ -17,8 +16,20 @@ block content
         p How should we do it?
       #Demos.tabcontent
         h3 Demos
-        p
-          a(href='/air-pollution') Real-time Air Pollution Data in China
+        div.anchor-link
+          a(href='/demo/air-pollution') Real-time Air Pollution Data in China
+        div.anchor-link
+          a(href='/demo/price-and-earnings') Global Price and Earning in 2012
+        div.anchor-link
+          a(href='/demo/flight-routes') World Flight: Routes
+        div.anchor-link
+          a(href='/demo/airports') World Flight: Airports 
+        div.anchor-link
+          a(href='/demo/research-invest') Research Invest Around the World
+        div.anchor-link
+          a(href='/demo/budget-proposal') 2012 Obama's Budget Proposal
+        div.anchor-link
+          a(href='/demo/beijing-railway') Beijing Railway Map
     .chart-container
     .loading-spinner
       i.fa.fa-spinner(aria-hidden='true')

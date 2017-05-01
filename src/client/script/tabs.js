@@ -1,11 +1,12 @@
 import $ from 'jquery'
 
 export default function setUpTabsHandlers() {
-  $('.tablink').click(function(ev) {
+  $('.tablink').click(function () {
     $('.tabcontent').hide()
     $('.tablink').removeClass('active')
 
-    $('.tabcontent').eq($(this).index()).show()
-    $('.tablink').eq($(this).index()).addClass('active')
+    const thisIndex = $(this).index()
+    $('.tabcontent').eq(thisIndex).show()
+    $('.tablink').eq(thisIndex).addClass('active')
   })
 }

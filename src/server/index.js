@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express')
 
 const airPollution = require('./data/airPollution')
-const { server } = require('../../config')
+const { SERVER } = require('../../config')
 
 const app = express()
 
@@ -29,7 +29,7 @@ app.get('/air-pollution', (req, res) => {
   })
 })
 
-app.listen(server.port, () => {
+app.listen(SERVER.PORT, () => {
   console.log('server start')
 })
 
