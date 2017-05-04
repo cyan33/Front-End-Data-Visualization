@@ -26,10 +26,13 @@ const config = {
         loader: 'css-loader', // translates CSS into CommonJS
       }, {
         loader: 'sass-loader', // compiles Sass to CSS
+        options: {
+          sourceMap: true,
+        },
       }],
     }, {
       test: /\.css$/,
-      loader: ['style-loader', 'css-loader'],
+      loaders: ['style-loader', 'css-loader'],
     }],
   },
 }

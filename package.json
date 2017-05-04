@@ -24,10 +24,13 @@
     "echarts": "^3.5.2",
     "echarts-liquidfill": "^1.0.4",
     "express": "^4.15.2",
+    // "hammerjs": "^2.0.8",
     "jade": "^1.11.0",
     "jquery": "^3.2.1",
+    // "materialize-css": "^0.98.2",
     "open": "0.0.5",
-    "pug": "^2.0.0-beta.12"
+    "pug": "^2.0.0-beta.12",
+    "resolve-url-loader": "^2.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -39,11 +42,13 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "file-loader": "^0.11.1",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
     "webpack": "^2.4.1"
   }
 }
