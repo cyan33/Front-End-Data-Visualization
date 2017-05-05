@@ -15,21 +15,55 @@ block content
         h3 How
         p How should we do it?
       #Demos.tabcontent
-        h3 Demos
-        div.anchor-link
-          a(href='/demo/air-pollution') Real-time Air Pollution Data in China
-        div.anchor-link
-          a(href='/demo/price-and-earnings') Global Price and Earning in 2012
-        div.anchor-link
-          a(href='/demo/flight-routes') World Flight: Routes
-        div.anchor-link
-          a(href='/demo/airports') World Flight: Airports 
-        div.anchor-link
-          a(href='/demo/research-invest') Research Invest Around the World
-        div.anchor-link
-          a(href='/demo/budget-proposal') 2012 Obama's Budget Proposal
-        div.anchor-link
-          a(href='/demo/beijing-railway') Beijing Railway Map
+        ul.collapsible(data-collapsible='accordion')
+          li
+            .collapsible-header
+              | Real-time Air Pollution Data in China
+            .collapsible-body
+              p 
+                | This is a complete example of data visualization, including how
+                | to fetch data from a website, which is usually a web crawler, which
+                | is, in this case, Cheerio. At back-end, we get a json serialized object 
+                | indicating the pm2.5 degree of each city.
+                | At front-end, we use ECharts, which is a data visualization library provided
+                | by Baidu.
+                a(href='/demo/air-pollution') Check the demo here
+          li
+            .collapsible-header
+              | Global Price and Earning in 2012
+            .collapsible-body
+              span 
+                a(href='/demo/price-and-earnings') Check the demo here
+          li
+            .collapsible-header
+              | World Flight: Routes
+            .collapsible-body
+              span 
+                a(href='/demo/flight-routes') Check the demo here
+          li
+            .collapsible-header
+              | World Flight: Airports 
+            .collapsible-body
+              span 
+                a(href='/demo/airports') Check the demo here
+          li
+            .collapsible-header
+              | Research Invest Around the World
+            .collapsible-body
+              span 
+                a(href='/demo/research-invest') Check the demo here
+          li
+            .collapsible-header
+              | 2012 Obama's Budget Proposal
+            .collapsible-body
+              span 
+                a(href='/demo/budget-proposal') Check the demo here
+          li
+            .collapsible-header
+              | Beijing Railway Map
+            .collapsible-body
+              span 
+                a(href='/demo/railway-map') Check the demo here
     .chart-container
     .loading-spinner
       i.fa.fa-spinner(aria-hidden='true')

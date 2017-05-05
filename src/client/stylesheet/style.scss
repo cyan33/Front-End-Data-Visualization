@@ -21,8 +21,18 @@ body {
         &.active {
           text-decoration: underline;
         }
+        &.github {
+          @media only screen and (max-width: 550px) {
+            display: none;
+          }
+          position: absolute;
+          right: 0;
+          top: 15px;
+          font-weight: 400;
+          font-size: 14px;
+        }
         position: relative;
-        top: 12px;
+        top: 10px;
         margin-right: 30px;
         display: inline-block;
         text-decoration: none;
