@@ -5,10 +5,13 @@ const path = require('path');
  */
 
 const config = {
-  entry: './src/client/script/index',
+  entry: {
+    app: './src/client/script/index',
+    'air-pollution': './src/client/script/airPollution',
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'app.bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [{
@@ -34,6 +37,10 @@ const config = {
       test: /\.css$/,
       loaders: ['style-loader', 'css-loader'],
     }],
+  },
+  externals: {
+    jQuery: 'jquery',
+    echarts: 'echarts',
   },
 }
 

@@ -19,14 +19,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/demo/air-pollution', (req, res) => {
-  airPollution.get().then((result) => {
-    res.render('air-pollution', {
-      result,
-    })
-  })
-  .catch((err) => {
-    console.error(err)
-  })
+  res.render('air-pollution', {})
 })
 
 // demo links routes

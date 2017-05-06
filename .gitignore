@@ -6,3 +6,5 @@ node_modules
 dist/app.bundle.js
 .vscode
 npm-debug.log
+
+config/private_key.js

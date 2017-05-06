@@ -1,8 +1,15 @@
 extends ./layout/_document
 
 block stylesheets
+
 block content
   include ./layout/_navs
   .chart-container
+  include ./layout/_loading
 block scripts
+  script.
+    var data = '#{result}'
+    console.log(JSON.parse(JSON.stringify(ata)))
   script(src='/dist/app.bundle.js')
+  script(src='/dist/air-pollution.bundle.js')
+  

@@ -8,8 +8,6 @@ import {
 } from './generateChart'
 import setUpTabsHandlers from './tabs'
 
-$(() => {
-  // DEBUG
-  window.$ = $
-  setUpTabsHandlers()
-})
+// DEBUG
+window.$ = $
+setUpTabsHandlers()

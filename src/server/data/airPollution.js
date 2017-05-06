@@ -1,8 +1,10 @@
 const cheerio = require('cheerio')
 const request = require('request')
 
-const { DATA: AIR_POLLUTION_URL } = require('../../../config/index')
+const { URL } = require('../../../config/index')
 
+const { AIR_POLLUTION } = URL
+const key = require('../../../config/private_key')
 const geoCoordinationMap = {
   海门: [121.15, 31.89],
   鄂尔多斯: [109.781327, 39.608266],
@@ -198,23 +200,44 @@ const geoCoordinationMap = {
 
 function parseWeatherData(html) {
   const $ = cheerio.load(html)
-  const dataBlocks = $(".pm25 div:not('.aqi_top')")
+  const dataBlocks = $('table').eq(2).find('tbody tr')
   const json = []
   dataBlocks.each((i, item) => {
-    const name = $(item).find('span:nth-child(2)').text()
+    // loop throught each <tr>
+    const name = $(item).find('td:nth-child(2)').text()
     if (!~Object.keys(geoCoordinationMap).indexOf(name)) return
     json.push({
       name, // city name
-      value: geoCoordinationMap[name].concat($(item).find('span.aqis').eq(0).html()), // ['三亚', 109.511909, 18.252847, 5]
+      value: geoCoordinationMap[name].concat($(item).find('td:nth-child(6)').text()), // ['三亚', 109.511909, 18.252847, 5]
     })
   })
   return json
 }
 
+function parseAPI(json) {
+  return JSON.parse(json).filter((item) => !!geoCoordinationMap[item.area])
+    .map((item) => {
+      return {
+        name: item.area,
+        value: geoCoordinationMap[item.area].concat(item.pm2_5),
+      }
+    })
+}
+
+const option = {
+  url: `http://www.pm25.in/api/querys/all_cities.json?token=${key}`,
+  // url: 'baidu.com',
+  headers: {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+  },
+}
+
 module.exports = {
   get: () => new Promise((resolve) => {
-    request(AIR_POLLUTION_URL, (err, res, body) => {
-      resolve(parseWeatherData(body))
+    request(option, (err, res, body) => {
+      // console.log('body:', body)
+      resolve(parseAPI(body))
+      // resolve(body)
     })
   }),
 }

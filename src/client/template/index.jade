@@ -14,7 +14,6 @@ block content
       #How.tabcontent
         h3 How
         p How should we do it?
-        include ./layout/_loading
       #Demos.tabcontent
         ul.collapsible(data-collapsible='accordion')
           li
@@ -71,8 +70,6 @@ block content
                 | the fixed-width text file into a CSV, including dsv2dsv: 
                 a(href='/demo/unemployment-rate') Check the demo here
     .chart-container
-    .loading-spinner
-      i.fa.fa-spinner(aria-hidden='true')
 
 block scripts
   script(src='/dist/app.bundle.js')
