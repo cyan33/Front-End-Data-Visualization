@@ -429,3 +429,307 @@ export function generateWorldFlight() {
   })
 }
 
+export function generateBudgetProposal() {
+  myChart.showLoading();
+
+  const householdAmerica = 113616229;
+  $.getJSON(URL.BUDGET_PROPOSAL, (obamaBudget) => {
+    myChart.hideLoading();
+
+    let formatUtil;
+
+    function buildData(mode, originList) {
+      const out = [];
+
+      for (let i = 0; i < originList.length; i++) {
+        const node = originList[i];
+        const newNode = out[i] = cloneNodeInfo(node);
+        const value = newNode.value;
+
+        if (!newNode) {
+          continue;
+        }
+
+            // Calculate amount per household.
+        value[3] = value[0] / householdAmerica;
+
+            // if mode === 0 and mode === 2 do nothing
+        if (mode === 1) {
+                // Set 'Change from 2010' to value[0].
+          const tmp = value[1];
+          value[1] = value[0];
+          value[0] = tmp;
+        }
+
+        if (node.children) {
+          newNode.children = buildData(mode, node.children);
+        }
+      }
+
+      return out;
+    }
+
+    function cloneNodeInfo(node) {
+      if (!node) {
+        return;
+      }
+
+      const newNode = {};
+      newNode.name = node.name;
+      newNode.id = node.id;
+      newNode.discretion = node.discretion;
+      newNode.value = (node.value || []).slice();
+      return newNode;
+    }
+
+    function getLevelOption(mode) {
+      return [
+        {
+          color: mode === 2
+                    ? [
+                      '#c23531', '#314656', '#61a0a8', '#dd8668',
+                      '#91c7ae', '#6e7074', '#61a0a8', '#bda29a',
+                      '#44525d', '#c4ccd3',
+                    ]
+                    : null,
+          colorMappingBy: 'id',
+          itemStyle: {
+            normal: {
+              borderWidth: 3,
+              gapWidth: 3,
+            },
+          },
+        },
+        {
+          colorAlpha: mode === 2
+                    ? [0.5, 1] : null,
+          itemStyle: {
+            normal: {
+              gapWidth: 1,
+            },
+          },
+        },
+      ];
+    }
+
+    function isValidNumber(num) {
+      return num != null && isFinite(num);
+    }
+
+    function getTooltipFormatter(mode) {
+      const amountIndex = mode === 1 ? 1 : 0;
+      const amountIndex2011 = mode === 1 ? 0 : 1;
+
+      return function (info) {
+        const value = info.value;
+
+        let amount = value[amountIndex];
+        amount = isValidNumber(amount)
+                ? `${formatUtil.addCommas(amount * 1000)}$`
+                : '-';
+
+        let amount2011 = value[amountIndex2011];
+        amount2011 = isValidNumber(amount2011)
+                ? `${formatUtil.addCommas(amount2011 * 1000)}$`
+                : '-';
+
+        let perHousehold = value[3];
+        perHousehold = isValidNumber(perHousehold)
+                ? `${formatUtil.addCommas((+perHousehold.toFixed(4)) * 1000)}$`
+                : '-';
+
+        let change = value[2];
+        change = isValidNumber(change)
+                ? `${change.toFixed(2)}%`
+                : '-';
+
+        return [
+          `<div class="tooltip-title">${formatUtil.encodeHTML(info.name)}</div>`,
+          `2012 Amount: &nbsp;&nbsp;${amount}<br>`,
+          `Per Household: &nbsp;&nbsp;${perHousehold}<br>`,
+          `2011 Amount: &nbsp;&nbsp;${amount2011}<br>`,
+          `Change From 2011: &nbsp;&nbsp;${change}`,
+        ].join('');
+      };
+    }
+
+    function createSeriesCommon() {
+      return {
+        type: 'treemap',
+        label: {
+          show: true,
+          formatter: '{b}',
+          normal: {
+            textStyle: {
+              ellipsis: true,
+            },
+          },
+        },
+        itemStyle: {
+          normal: {
+            borderColor: 'black',
+          },
+        },
+        levels: getLevelOption(0),
+      };
+    }
+
+    formatUtil = echarts.format;
+    const modes = ['2012Budget', '2011Budget', 'Growth'];
+
+    myChart.setOption({
+      title: {
+        left: 'center',
+        text: 'How $3.7 Trillion is Spent',
+        subtext: 'Obama’s 2012 Budget Proposal',
+      },
+
+      legend: {
+        data: modes,
+        selectedMode: 'single',
+        top: 50,
+        itemGap: 5,
+      },
+
+      tooltip: {
+        formatter: getTooltipFormatter(0),
+      },
+
+      series: modes.map((mode, idx) => {
+        const seriesOpt = createSeriesCommon();
+        seriesOpt.name = mode;
+        seriesOpt.top = 80;
+        seriesOpt.visualDimension = idx === 2 ? 2 : null;
+        seriesOpt.data = buildData(idx, obamaBudget);
+        seriesOpt.levels = getLevelOption(idx);
+        return seriesOpt;
+      }),
+    });
+  });
+}
+
+// directly send dirty html file from backend
+// export function generateUnemploymentRate() {
+
+// }
+
+export function generateDailyActivityProportion() {
+  const cellSize = [80, 80];
+  const pieRadius = 30;
+
+  function getVirtulData() {
+    const date = +echarts.number.parseDate('2017-02-01');
+    const end = +echarts.number.parseDate('2017-03-01');
+    const dayTime = 3600 * 24 * 1000;
+    const data = [];
+    for (let time = date; time < end; time += dayTime) {
+      data.push([
+        echarts.format.formatTime('yyyy-MM-dd', time),
+        Math.floor(Math.random() * 10000),
+      ]);
+    }
+    return data;
+  }
+
+  function getPieSeries(scatterData, chart) {
+    return echarts.util.map(scatterData, (item, index) => {
+      const center = chart.convertToPixel('calendar', item);
+      return {
+        id: `${index}pie`,
+        type: 'pie',
+        center,
+        label: {
+          normal: {
+            formatter: '{c}',
+            position: 'inside',
+          },
+        },
+        radius: pieRadius,
+        data: [
+                { name: '工作', value: Math.round(Math.random() * 24) },
+                { name: '娱乐', value: Math.round(Math.random() * 24) },
+                { name: '睡觉', value: Math.round(Math.random() * 24) },
+        ],
+      };
+    });
+  }
+
+  function getPieSeriesUpdate(scatterData, chart) {
+    return echarts.util.map(scatterData, (item, index) => {
+      const center = chart.convertToPixel('calendar', item);
+      return {
+        id: `${index}pie`,
+        center,
+      };
+    });
+  }
+
+  const scatterData = getVirtulData();
+
+  option = {
+    tooltip: {},
+    legend: {
+      data: ['工作', '娱乐', '睡觉'],
+      bottom: 20,
+    },
+    calendar: {
+      top: 'middle',
+      left: 'center',
+      orient: 'vertical',
+      cellSize,
+      yearLabel: {
+        show: false,
+        textStyle: {
+          fontSize: 30,
+        },
+      },
+      dayLabel: {
+        margin: 20,
+        firstDay: 1,
+        nameMap: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+      },
+      monthLabel: {
+        show: false,
+      },
+      range: ['2017-02'],
+    },
+    series: [{
+      id: 'label',
+      type: 'scatter',
+      coordinateSystem: 'calendar',
+      symbolSize: 1,
+      label: {
+        normal: {
+          show: true,
+          formatter(params) {
+            return echarts.format.formatTime('dd', params.value[0]);
+          },
+          offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+          textStyle: {
+            color: '#000',
+            fontSize: 14,
+          },
+        },
+      },
+      data: scatterData,
+    }],
+  };
+
+  if (!app.inNode) {
+    let pieInitialized;
+    setTimeout(() => {
+      pieInitialized = true;
+      myChart.setOption({
+        series: getPieSeries(scatterData, myChart),
+      });
+    }, 10);
+
+    app.onresize = function () {
+      if (pieInitialized) {
+        myChart.setOption({
+          series: getPieSeriesUpdate(scatterData, myChart),
+        });
+      }
+    };
+  }
+}

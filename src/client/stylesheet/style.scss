@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+b, strong {
+  font-weight: bold;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -58,30 +62,27 @@ body {
       width: 400px;
       height: 400px;
     }
-    .loading-spinner {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      .fa {
-        display: inline-block;
-        font-size: 60px;
-        animation: spin linear 1.5s infinite;
+  }
+  .chart-container {
+    width: 900px;
+    height: 700px;
+    margin: 0 auto;
+  }
+  .preloader-wrapper {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transfrom: translate(-50%, -50%);
+    .circle-clipper {
+      border-color: maroon;
+      .circle {
+        border-width: 5px;
       }
     }
   }
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg) }
-  to { transform: rotate(360deg) }
-}
-
-/* Copy and paste the stupid shit*/
 .content-container {
-  
-
   /* Style the tab content */
   .tabcontent {
     display: none;
@@ -96,7 +97,6 @@ body {
     
   }
 }
-
 
 /* Fade in tabs */
 @keyframes fadeEffect {

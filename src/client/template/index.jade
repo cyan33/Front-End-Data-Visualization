@@ -14,6 +14,7 @@ block content
       #How.tabcontent
         h3 How
         p How should we do it?
+        include ./layout/_loading
       #Demos.tabcontent
         ul.collapsible(data-collapsible='accordion')
           li
@@ -32,14 +33,12 @@ block content
             .collapsible-header
               | Global Price and Earning in 2012
             .collapsible-body
-              span 
+              p
+                | This is a relatively complicated example, in which you can see the power of 
+                | data visualization. We combine
+                strong map, charts, drag and select interaction
+                | in one single demo.
                 a(href='/demo/price-and-earnings') Check the demo here
-          li
-            .collapsible-header
-              | World Flight: Routes
-            .collapsible-body
-              span 
-                a(href='/demo/flight-routes') Check the demo here
           li
             .collapsible-header
               | World Flight: Airports 
@@ -48,22 +47,29 @@ block content
                 a(href='/demo/airports') Check the demo here
           li
             .collapsible-header
-              | Research Invest Around the World
-            .collapsible-body
-              span 
-                a(href='/demo/research-invest') Check the demo here
-          li
-            .collapsible-header
               | 2012 Obama's Budget Proposal
             .collapsible-body
-              span 
+              p
+                strong Treemaps 
+                | are an alternative way of visualising the hierarchical 
+                | structure of a Tree Diagram while also displaying quantities for 
+                | each category via area size. Each category is assigned a rectangle 
+                | area with their subcategory rectangles nested inside of it. When a
+                | quantity is assigned to a category, its area size is displayed in 
+                | proportion to that quantity and to the other quantities within the
+                | same parent category in a part-to-whole relationship.
                 a(href='/demo/budget-proposal') Check the demo here
           li
             .collapsible-header
-              | Beijing Railway Map
+              | Unemployment Rate of United States
             .collapsible-body
-              span 
-                a(href='/demo/railway-map') Check the demo here
+              p
+                | Source: Bureau of Labor Statistics, Census Bureau
+                br
+                | This choropleth shows unemployment rates as of August, 2016 with a 
+                | threshold scale. I employed a mix of command-line tools to transform 
+                | the fixed-width text file into a CSV, including dsv2dsv: 
+                a(href='/demo/unemployment-rate') Check the demo here
     .chart-container
     .loading-spinner
       i.fa.fa-spinner(aria-hidden='true')

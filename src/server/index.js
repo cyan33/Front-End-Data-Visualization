@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.get('/air-pollution', (req, res) => {
+app.get('/demo/air-pollution', (req, res) => {
   airPollution.get().then((result) => {
     res.render('air-pollution', {
       result,
@@ -27,6 +27,11 @@ app.get('/air-pollution', (req, res) => {
   .catch((err) => {
     console.error(err)
   })
+})
+
+// demo links routes
+app.get('/demo/unemployment-rate', (req, res) => {
+  res.render('unemployment-rate', {})
 })
 
 app.listen(SERVER.PORT, () => {

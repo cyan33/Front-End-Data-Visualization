@@ -1,4 +1,8 @@
 extends ./layout/_document
 
-block vars
-  - var title = 'test'
+block stylesheets
+block content
+  include ./layout/_navs
+  .chart-container
+block scripts
+  script(src='/dist/app.bundle.js')
