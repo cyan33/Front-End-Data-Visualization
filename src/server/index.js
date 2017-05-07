@@ -12,7 +12,11 @@ const obamaBudget = require('./data/obamaBudget')
 const worldFlightData = require('./data/worldFlight')
 const priceAndEarnings = require('./data/priceAndEarnings')
 
+// dist
 app.use('/dist', express.static('dist'))
+
+// static file
+app.use(express.static('public'))
 
 app.set('views', path.resolve(__dirname, '../../', './src/client/template'))
 app.set('view engine', 'jade')

@@ -698,10 +698,10 @@ function generateWorldFlight() {
         }
       },
       globe: {
+        // static jpg from public folder
+        environment: '/images/universe.jpg',
 
-        environment: '/asset/get/s/data-1491837999815-H1_44Qtal.jpg',
-
-        heightTexture: '/asset/get/s/data-1491837512042-rJlLfXYax.jpg',
+        heightTexture: '/images/globe_texture.jpg',
 
         displacementScale: 0.05,
         displacementQuality: 'high',
@@ -732,7 +732,7 @@ function generateWorldFlight() {
             shadow: false
           },
           ambientCubemap: {
-            texture: '/asset/get/s/data-1491837984109-r1u7NmY6e.hdr',
+            texture: '/images/globe_color.hdr',
             exposure: 1,
             diffuseIntensity: 0.5,
             specularIntensity: 2
