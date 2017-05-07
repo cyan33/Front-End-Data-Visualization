@@ -1,0 +1,64 @@
+extends ./layout/_document
+- var activeTab = 'demos'
+
+block stylesheets
+block content
+  include ./layout/_navs
+  .content-container
+      #Demos.tabcontent
+        ul.collapsible(data-collapsible='accordion')
+          li
+            .collapsible-header
+              | Real-time Air Pollution Data in China
+            .collapsible-body
+              p 
+                | This is a complete example of data visualization, including how
+                | to fetch data from a website, which is usually a web crawler, which
+                | is, in this case, Cheerio. At back-end, we get a json serialized object 
+                | indicating the pm2.5 degree of each city.
+                | At front-end, we use ECharts, which is a data visualization library provided
+                | by Baidu.
+                a(href='/demo/air-pollution') Check the demo here
+          li
+            .collapsible-header
+              | Global Price and Earning in 2012
+            .collapsible-body
+              p
+                | This is a relatively complicated example, in which you can see the power of 
+                | data visualization. We combine
+                strong map, charts, drag and select interaction
+                | in one single demo.
+                a(href='/demo/price-and-earnings') Check the demo here
+          li
+            .collapsible-header
+              | World Flight: Airports 
+            .collapsible-body
+              span 
+                a(href='/demo/world-flight') Check the demo here
+          li
+            .collapsible-header
+              | 2012 Obama's Budget Proposal
+            .collapsible-body
+              p
+                strong Treemaps 
+                | are an alternative way of visualising the hierarchical 
+                | structure of a Tree Diagram while also displaying quantities for 
+                | each category via area size. Each category is assigned a rectangle 
+                | area with their subcategory rectangles nested inside of it. When a
+                | quantity is assigned to a category, its area size is displayed in 
+                | proportion to that quantity and to the other quantities within the
+                | same parent category in a part-to-whole relationship.
+                a(href='/demo/budget-proposal') Check the demo here
+          li
+            .collapsible-header
+              | Unemployment Rate of United States
+            .collapsible-body
+              p
+                | Source: Bureau of Labor Statistics, Census Bureau
+                br
+                | This choropleth shows unemployment rates as of August, 2016 with a 
+                | threshold scale. I employed a mix of command-line tools to transform 
+                | the fixed-width text file into a CSV, including dsv2dsv: 
+                a(href='/demo/unemployment-rate') Check the demo here
+block scripts
+  script(src='/dist/app.bundle.js')

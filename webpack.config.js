@@ -8,6 +8,9 @@ const config = {
   entry: {
     app: './src/client/script/index',
     'air-pollution': './src/client/script/airPollution',
+    'price-and-earnings': './src/client/script/priceAndEarnings',
+    'budget-proposal': './src/client/script/budgetProposal',
+    'world-flight': './src/client/script/worldFlight',
   },
   output: {
     path: path.resolve(__dirname, './dist'),

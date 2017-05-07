@@ -1,14 +1,14 @@
 extends ./layout/_document
-- var activeTab = 'what'
+- var activeTab = 'why'
 
 block stylesheets
 block content
   include ./layout/_navs
   .content-container
     .tabcontent-container
-      #What.tabcontent.active
-        h3 What
-        p What is Data Visualization?
+      #Why.tabcontent
+        h3 Why
+        p Why should we leverage data visualization?
 
 block scripts
   script(src='/dist/app.bundle.js')

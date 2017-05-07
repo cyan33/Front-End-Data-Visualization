@@ -75,6 +75,66 @@ const geoCoordMap = {
   Zurich: [8.541694, 47.376887],
 }
 
+const schema = [
+  'Cities',
+  'Gross purchasing power',
+  'Net purchasing power',
+  'Prices (excl. rent)',
+  'Prices (incl. rent)',
+  'Gross wages',
+  'Net wages',
+  'Working time [hours per year]',
+  'Vacation [paid working days per year]',
+  'Time required for 1 Big Mac [minutes]',
+  'Time required for 1 kg of bread [minutes]',
+  'Time required for 1 kg of rice [minutes]',
+  'Time required for 1 iPhone 4S, 16 GB [hours]',
+  'City break',
+  'Inflation 2006',
+  'Inflation 2007',
+  'Inflation 2008',
+  'Inflation 2009',
+  'Inflation 2010',
+  'Inflation 2011',
+  'Prices (incl. rent)',
+  'Food basket',
+  'Services',
+  'Normal local rent medium [USD per month]',
+  'Household appliances',
+  'Bus or tram or underground',
+  'Train',
+  'Taxi  [USD per 5 km trip]',
+  'Medium-sized cars price',
+  'Medium-sized cars tax',
+  'Medium-sized cars gas',
+  'Restaurant [USD per dinner]',
+  'Hotel *** [USD per night]',
+  'Hotel ***** [USD per night]',
+  "Women's medium clothing",
+  "Men's medium clothing",
+  'Furnished medium 4-room apartment [USD per month]',
+  'Unfurnished medium 3-room apartment [USD per month]',
+  'Net hourly wages [USD per hour]',
+  'Gross hourly wages [USD per hour]',
+  'Taxes and social security contributions',
+  'Primary school teacher [USD per year]',
+  'Bus driver [USD per year]',
+  'Automobile mechanic [USD per year]',
+  'Building labourer [USD per year]',
+  'Skilled industrial worker [USD per year]',
+  'Cook [USD per year]',
+  'Departement head [USD per year]',
+  'Product manager [USD per year]',
+  'Engineer [USD per year]',
+  'Bank credit clerk [USD per year]',
+  'Secretary [USD per year]',
+  'Saleswoman [USD per year]',
+  'Female industrial worker [USD per year]',
+  'Female call center worker [USD per year]',
+  'Financial analyst [USD per year]',
+  'Financial analyst [USD pro Jahr]',
+]
+
 // in the schema sequence
 const rawData = [
   ['Amsterdam', 101.6, 90.1, 77.1, 69.1, 78.3, 69.4, 1755, 24, 15, 7, 9, 44, 720, 1.651, 1.59, 2.205, 0.974, 0.93, 2.477, 67.4, 364, 690, 1113, 4960, 3.19, 30.05, 16.34, 24000, 689, 1.8, 50, 200, 390, 690, 1040, 2331, 1580, 17.5, 25.5, 30, 48400, 39200, 26300, 30200, 55400, 39800, 104400, 58700, 64600, 49200, 40300, 31100, 40300, 27700, 66700, 66700],
@@ -152,20 +212,6 @@ const rawData = [
   ['Zurich', 119.1, 120.3, 110, 102.5, 131.1, 132.4, 1887, 23, 12, 5, 5, 22, 1250, 1.047, 0.732, 2.43, -0.476, 0.685, 0.228, 100, 704, 1130, 2551, 5130, 4.66, 68.47, 28.93, 45200, 426, 2.01, 90, 280, 630, 1100, 1190, 4481, 2499, 33.4, 42.7, 21, 104600, 90700, 68900, 61800, 79800, 69900, 137200, 130000, 115700, 96900, 71100, 61400, 53200, 58900, 140400, 140400],
 ]
 
-function makeMapData(rawData) {
-  const mapData = [];
-  for (let i = 0; i < rawData.length; i += 1) {
-    const geoCoord = geoCoordMap[rawData[i][0]];
-    if (geoCoord) {
-      mapData.push({
-        name: rawData[i][0],
-        value: geoCoord.concat(rawData[i].slice(1)),
-      });
-    }
-  }
-  return mapData;
-}
-
 module.exports = {
-  get: () => Promise.resolve(makeMapData(rawData)),
+  get: () => JSON.stringify({ geoCoordMap, schema, rawData }),
 }

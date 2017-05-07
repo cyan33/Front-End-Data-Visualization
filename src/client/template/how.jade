@@ -1,14 +1,14 @@
 extends ./layout/_document
-- var activeTab = 'what'
+- var activeTab = 'how'
 
 block stylesheets
 block content
   include ./layout/_navs
   .content-container
     .tabcontent-container
-      #What.tabcontent.active
-        h3 What
-        p What is Data Visualization?
+      #How.tabcontent
+        h3 How
+        p How should we do it?
 
 block scripts
   script(src='/dist/app.bundle.js')
