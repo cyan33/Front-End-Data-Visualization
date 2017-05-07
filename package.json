@@ -4,7 +4,6 @@
   "description": "Graduate Project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server/",
     "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w",
     "style": "sass ./src/client/stylesheet/style.scss ./dist/style.css"
   },
