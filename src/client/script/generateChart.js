@@ -1,5 +1,6 @@
 // import 'echarts-liquidfill'
 import echarts from 'echarts'
+import * as d3 from 'd3';
 import $ from 'jquery'
 
 import './echarts/china'

@@ -76,6 +76,10 @@ app.get('/demo/budget-proposal/data', (req, res) => {
   res.json(JSON.stringify(obamaBudget))
 })
 
+app.get('/demo/heat-map', (req, res) => {
+  res.render('heat-map', {})
+})
+
 app.listen(SERVER.PORT, () => {
   console.log('server start')
 })

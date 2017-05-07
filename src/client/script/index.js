@@ -1,6 +1,4 @@
-import $ from 'jquery'
-
-import '../stylesheet/style.scss'
+// import '../stylesheet/style.scss'
 
 // import {
 //   generateLiquidfill,

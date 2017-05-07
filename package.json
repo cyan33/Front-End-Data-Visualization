@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server/",
-    "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w"
+    "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w",
+    "style": "sass ./src/client/stylesheet/style.scss ./dist/style.css"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "animate.css": "^3.5.2",
     "bootstrap": "^4.0.0-alpha.6",
     "cheerio": "^0.22.0",
+    "d3": "^4.8.0",
     "echarts": "^3.5.2",
     "echarts-liquidfill": "^1.0.4",
     "express": "^4.15.2",

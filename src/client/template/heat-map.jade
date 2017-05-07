@@ -1,0 +1,11 @@
+extends ./layout/_document
+
+block stylesheets
+
+block content
+  include ./layout/_navs
+  include ./layout/_loading
+
+block scripts
+  script(src='/dist/app.bundle.js')
+  script(src='/dist/heat-map.bundle.js')

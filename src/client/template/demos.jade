@@ -17,7 +17,7 @@ block content
                 | is, in this case, Cheerio. At back-end, we get a json serialized object 
                 | indicating the pm2.5 degree of each city.
                 | At front-end, we use ECharts, which is a data visualization library provided
-                | by Baidu.
+                | by Baidu. 
                 a(href='/demo/air-pollution') Check the demo here
           li
             .collapsible-header
@@ -25,16 +25,22 @@ block content
             .collapsible-body
               p
                 | This is a relatively complicated example, in which you can see the power of 
-                | data visualization. We combine
-                strong map, charts, drag and select interaction
-                | in one single demo.
+                | data visualization. We combine 
+                strong map, charts, drag and select interaction 
+                | in one single demo. 
                 a(href='/demo/price-and-earnings') Check the demo here
           li
             .collapsible-header
-              | World Flight: Airports 
+              | Global Flight Routes of Different Brands 
             .collapsible-body
-              span 
-                a(href='/demo/world-flight') Check the demo here
+              p
+              | In this case, we show the global flight routes in a mocked globe of earth. 
+              | With Different brands, you can see the different routes, density of where the 
+              | routes lie in. The advanced 
+              strong 3-Dimension 
+              | mocking is especially user-friendly and attractive. You can even do drag and 
+              | zoom in(out). This is done by dispatching a echarts action. 
+              a(href='/demo/world-flight') Check the demo here
           li
             .collapsible-header
               | 2012 Obama's Budget Proposal
@@ -47,18 +53,15 @@ block content
                 | area with their subcategory rectangles nested inside of it. When a
                 | quantity is assigned to a category, its area size is displayed in 
                 | proportion to that quantity and to the other quantities within the
-                | same parent category in a part-to-whole relationship.
+                | same parent category in a part-to-whole relationship. 
                 a(href='/demo/budget-proposal') Check the demo here
           li
             .collapsible-header
-              | Unemployment Rate of United States
+              | Heat Map of Daily Activity
             .collapsible-body
               p
-                | Source: Bureau of Labor Statistics, Census Bureau
-                br
-                | This choropleth shows unemployment rates as of August, 2016 with a 
-                | threshold scale. I employed a mix of command-line tools to transform 
-                | the fixed-width text file into a CSV, including dsv2dsv: 
-                a(href='/demo/unemployment-rate') Check the demo here
+                | You can see this type of charts everywhere. Github uses this kind of 
+                | map to count contribution of your account, indicating your activity. 
+                a(href='/demo/heat-map') Check the demo here
 block scripts
   script(src='/dist/app.bundle.js')

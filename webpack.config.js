@@ -11,6 +11,7 @@ const config = {
     'price-and-earnings': './src/client/script/priceAndEarnings',
     'budget-proposal': './src/client/script/budgetProposal',
     'world-flight': './src/client/script/worldFlight',
+    'heat-map': './src/client/script/heatMap',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
