@@ -1,10 +1,14 @@
 china_haze_data/.idea/workspace.xml
 china_haze_data/.idea/workspace.xml
 
+# dependencies
 node_modules
 
+# bundles
 dist/*.bundle.js
+
 .vscode
 npm-debug.log
 
+# Guess what is this LOL
 config/private_key.js

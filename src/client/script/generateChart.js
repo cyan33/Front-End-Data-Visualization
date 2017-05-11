@@ -98,7 +98,7 @@ export function generatePm25Chart() {
         },
         title: {
           id: 'statistic',
-          text: count ? `平均: ${(sum / count).toFixed(4)}` : '',
+          text: count ? `Average: ${(sum / count).toFixed(4)}` : '',
         },
         series: {
           id: 'bar',
@@ -116,7 +116,7 @@ export function generatePm25Chart() {
       animationEasingUpdate: 'cubicInOut',
       title: [
         {
-          text: '全国主要城市 PM 2.5',
+          text: 'PM 2.5 of the Main Cities in China',
           subtext: 'data from PM25.in',
           sublink: 'http://www.pm25.in',
           left: 'center',

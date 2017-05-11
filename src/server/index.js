@@ -1,6 +1,7 @@
 /* eslint "no-underscore-dangle": 0 */
 const path = require('path')
 const express = require('express')
+const favicon = require('serve-favicon')
 
 const { SERVER } = require('../../config')
 
@@ -14,6 +15,9 @@ const priceAndEarnings = require('./data/priceAndEarnings')
 
 // dist
 app.use('/dist', express.static('dist'))
+
+// favicon
+app.use(favicon(path.resolve(__dirname, '../../public', './favicon.ico')))
 
 // static file
 app.use(express.static('public'))
