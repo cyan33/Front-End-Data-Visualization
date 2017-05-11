@@ -9,6 +9,7 @@ dist/*.bundle.js
 
 .vscode
 npm-debug.log
+.sass-cache
 
 # Guess what is this LOL
 config/private_key.js
