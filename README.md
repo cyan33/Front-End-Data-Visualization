@@ -7,7 +7,9 @@ Open your command line:
 
 Run:
 
-`git clone https://github.com/thomasyimgit/Front-End-Data-Visualization.git`
+```bash
+git clone https://github.com/thomasyimgit/Front-End-Data-Visualization.git
+```
 
 Change into that directory and install the dependencies:
 
@@ -19,11 +21,14 @@ npm install
 and then bootstrap the front-end and back-end stuff:
 
 ```bash
-npm run build // front-end bundle packing
-npm run dev // host the server
+npm run build
+npm run dev
 ```
 
-Finally, open your browser and go to `http://localhost:6789`
+Open your browser and go to 
+```
+http://localhost:6789
+```
 
 ---
 

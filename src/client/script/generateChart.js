@@ -55,7 +55,7 @@ export function generatePm25Chart() {
 
   $.getJSON(URL.AIR_POLLUTION_FE, (json) => {
     hideLoading()
-    const { data, geoCoordMap } = JSON.parse(json)
+    const { data, geoCoordMap } = json
     const convertedData = [
       convertData(data, geoCoordMap),
       convertData(data.sort((a, b) => b.value - a.value).slice(0, 6), geoCoordMap),

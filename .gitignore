@@ -9,7 +9,11 @@ dist/*.bundle.js
 
 .vscode
 npm-debug.log
+
+# Sass Shit
+.sass-cache/*
 .sass-cache
+*.css.map
 
 # Guess what is this LOL
 config/private_key.js

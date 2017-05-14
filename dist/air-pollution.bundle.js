@@ -165,10 +165,8 @@ function generatePm25Chart() {
 
   _jquery2.default.getJSON(_index.URL.AIR_POLLUTION_FE, function (json) {
     hideLoading();
-
-    var _JSON$parse = JSON.parse(json),
-        data = _JSON$parse.data,
-        geoCoordMap = _JSON$parse.geoCoordMap;
+    var data = json.data,
+        geoCoordMap = json.geoCoordMap;
 
     var convertedData = [convertData(data, geoCoordMap), convertData(data.sort(function (a, b) {
       return b.value - a.value;
@@ -432,10 +430,10 @@ function generatePriceAndEarnings(json) {
 
     hideLoading();
 
-    var _JSON$parse2 = JSON.parse(json),
-        rawData = _JSON$parse2.rawData,
-        geoCoordMap = _JSON$parse2.geoCoordMap,
-        schema = _JSON$parse2.schema;
+    var _JSON$parse = JSON.parse(json),
+        rawData = _JSON$parse.rawData,
+        geoCoordMap = _JSON$parse.geoCoordMap,
+        schema = _JSON$parse.schema;
 
     myChart.setOption({
       backgroundColor: new _echarts2.default.graphic.RadialGradient(0.5, 0.5, 0.4, [{

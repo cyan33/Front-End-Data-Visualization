@@ -55,7 +55,7 @@ app.get('/demo/air-pollution', (req, res) => {
 })
 app.get('/demo/air-pollution/data', (req, res) => {
   // console.log(JSON.stringify(airPollution.getJSON()))
-  res.json(JSON.stringify(airPollution.getJSON()))
+  res.json(airPollution.getJSON())
 })
 
 app.get('/demo/price-and-earnings', (req, res) => {

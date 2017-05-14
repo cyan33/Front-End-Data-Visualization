@@ -6,8 +6,6 @@ b, strong {
   font-weight: bold; }
 
 body {
-  width: 100%;
-  height: 100%;
   font-family: roboto; }
   body .nav {
     position: fixed;
@@ -45,10 +43,11 @@ body {
     top: 50px;
     padding: 0 70px; }
   body .chart-container {
+    position: absolute;
+    top: 50px;
     width: 100%;
-    height: 700px;
-    margin: 0 auto;
-    padding-top: 50px; }
+    height: calc(100% - 50px);
+    margin: 0 auto; }
   body .preloader-wrapper {
     position: fixed;
     z-index: 999;
