@@ -213,5 +213,11 @@ const rawData = [
 ]
 
 module.exports = {
-  get: () => JSON.stringify({ geoCoordMap, schema, rawData }),
+  get() {
+    return {
+      geoCoordMap,
+      schema,
+      rawData,
+    }
+  },
 }

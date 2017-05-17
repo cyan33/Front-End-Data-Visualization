@@ -296,7 +296,7 @@ export function generatePm25Chart() {
   })
 }
 
-export function generatePriceAndEarnings(json) {
+export function generatePriceAndEarnings() {
   function makeMapData(rawData, geoCoordMap) {
     const mapData = [];
     for (let i = 0; i < rawData.length; i++) {
@@ -323,7 +323,7 @@ export function generatePriceAndEarnings(json) {
   $.getJSON(URL.PRICE_AND_EARNINGS, (json) => {
     hideLoading()
 
-    const { rawData, geoCoordMap, schema } = JSON.parse(json)
+    const { rawData, geoCoordMap, schema } = json
 
     myChart.setOption({
       backgroundColor: new echarts.graphic.RadialGradient(0.5, 0.5, 0.4, [{
@@ -518,10 +518,8 @@ export function generatePriceAndEarnings(json) {
 export function generateWorldFlight() {
   showLoading()
 
-  $.getJSON(URL.WORLD_FLIGHT, (json) => {
+  $.getJSON(URL.WORLD_FLIGHT, (data) => {
     hideLoading()
-
-    const data = JSON.parse(json)
 
     const airports = data.airports.map(item => ({
       coord: [item[3], item[4]],
@@ -832,7 +830,7 @@ export function generateBudgetProposal() {
         seriesOpt.name = mode;
         seriesOpt.top = 80;
         seriesOpt.visualDimension = idx === 2 ? 2 : null;
-        seriesOpt.data = buildData(idx, JSON.parse(obamaBudget));
+        seriesOpt.data = buildData(idx, obamaBudget);
         seriesOpt.levels = getLevelOption(idx);
         return seriesOpt;
       }),

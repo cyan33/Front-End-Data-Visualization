@@ -46,9 +46,6 @@ app.get('/demos', (req, res) => {
 })
 
 // demo links routes
-app.get('/demo/unemployment-rate', (req, res) => {
-  res.render('unemployment-rate', {})
-})
 
 app.get('/demo/air-pollution', (req, res) => {
   res.render('air-pollution', {})
@@ -69,7 +66,7 @@ app.get('/demo/world-flight', (req, res) => {
   res.render('world-flight', {})
 })
 app.get('/demo/world-flight/data', (req, res) => {
-  res.json(JSON.stringify(worldFlightData))
+  res.json(worldFlightData)
 })
 
 app.get('/demo/budget-proposal', (req, res) => {
@@ -77,7 +74,7 @@ app.get('/demo/budget-proposal', (req, res) => {
 })
 
 app.get('/demo/budget-proposal/data', (req, res) => {
-  res.json(JSON.stringify(obamaBudget))
+  res.json(obamaBudget)
 })
 
 app.get('/demo/heat-map', (req, res) => {
