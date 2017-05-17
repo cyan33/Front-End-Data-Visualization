@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server/",
-    "build": "sass ./src/client/stylesheet/style.scss ./dist/style.css && ./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w",
+    "build": "./node_modules/.bin/eslint *.js && rm -rf dist/ && ./node_modules/.bin/webpack -w && sass ./src/client/stylesheet/style.scss ./dist/style.css",
     "style": "sass ./src/client/stylesheet/style.scss ./dist/style.css"
   },
   "repository": {
