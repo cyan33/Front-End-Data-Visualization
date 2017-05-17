@@ -1,6 +1,5 @@
 // import 'echarts-liquidfill'
 import echarts from 'echarts'
-import * as d3 from 'd3';
 import $ from 'jquery'
 
 import './echarts/china'
@@ -8,6 +7,12 @@ import './echarts/china'
 import { URL } from '../../../config/index'
 
 const myChart = echarts.init(document.querySelector('.chart-container'))
+
+function resizeHandler() {
+  window.onresize = () => {
+    myChart.resize()
+  }
+}
 
 export function showLoading() {
   $('.preloader-wrapper').show()
@@ -37,6 +42,7 @@ export function generateLiquidfill(percentage = 0) {
 
 export function generatePm25Chart() {
   showLoading()
+  resizeHandler()
 
   function convertData(data, geoCoordMap) {
     const res = [];
@@ -319,6 +325,7 @@ export function generatePriceAndEarnings() {
     return parallelAxis;
   }
   showLoading()
+  resizeHandler()
 
   $.getJSON(URL.PRICE_AND_EARNINGS, (json) => {
     hideLoading()
@@ -517,6 +524,7 @@ export function generatePriceAndEarnings() {
 
 export function generateWorldFlight() {
   showLoading()
+  resizeHandler()
 
   $.getJSON(URL.WORLD_FLIGHT, (data) => {
     hideLoading()
@@ -661,6 +669,7 @@ export function generateWorldFlight() {
 
 export function generateBudgetProposal() {
   showLoading();
+  resizeHandler();
 
   const householdAmerica = 113616229;
   $.getJSON(URL.BUDGET_PROPOSAL, (obamaBudget) => {
